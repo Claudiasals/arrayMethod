@@ -76,3 +76,46 @@ const activeUser = users.find((user) => {
 
 console.log(activeUser);
 
+
+
+
+
+
+// ESERCIZIO 4: Ordina gli studenti in base al voto (decrescente) 
+// e restituisci i primi 3 studenti
+/*
+const students = [
+    { name: "Alice", grade: 85 },
+    { name: "Bob", grade: 92 },
+    { name: "Charlie", grade: 78 },
+    { name: "Diana", grade: 95 },
+    { name: "Eve", grade: 88 },
+    { name: "Frank", grade: 90 },
+  ]
+  
+const decrescentStudents = students.sort((a, b) => {
+    return b.grade - a.grade; // Decrescente
+});
+console.log(decrescentStudents);
+
+
+const topStudents = students.slice(0, 3);
+
+console.log(topStudents);
+*/
+
+
+
+
+
+
+// ESERCIZIO 5: Estrai tutti i tag da tutti i post in un unico array,
+// rimuovendo i duplicati e ordinandoli in ordine alfabetico
+/*
+const blogPosts = [
+    { title: "Post 1", tags: ["javascript", "web", "frontend"] },
+    { title: "Post 2", tags: ["nodejs", "backend", "javascript"] },
+    { title: "Post 3", tags: ["react", "frontend", "web"] },
+    { title: "Post 4", tags: ["mongodb", "database", "backend"] },
+  ]
+  */
