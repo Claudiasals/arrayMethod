@@ -76,7 +76,24 @@ const activeUser = users.find((user) => {
 
 console.log(activeUser);
 
+const italianStudents = users.some(user => user.country == "Italy");
+console.log(italianStudents)
 
+/*
+oppure lo verificiamo stampando un messaggio se risponde al requisito:
+if (italianStudents) {
+    console.log("C'è almeno un utente proveniente dall'Italia");
+}
+
+e verrà stampato in console "C'è almeno un utente proveniente dall'Italia"
+*/
+
+/*
+Sintessi metodo some:
+array.some((elementoCorrente, indice, array) => {
+    // restituisce true o false in base alla condizione
+  });
+*/
 
 
 
