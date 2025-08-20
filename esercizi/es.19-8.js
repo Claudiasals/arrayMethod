@@ -1,4 +1,4 @@
-// Esercizio: Dato un array di prodotti, filtra solo quelli disponibili in magazzino 
+// ESERCIZIO 1: Dato un array di prodotti, filtra solo quelli disponibili in magazzino 
 // e restituisci un array con i loro nomi in maiuscolo 
 /* const products = [
     { id: 1, name: "Laptop", price: 999, inStock: true },
@@ -15,7 +15,6 @@ const productsInStock = products.filter((product) => {
 
 console.log(productsInStock);
 */
-
 //const productsNotInStock
 
 /*const notavaibleDevice = products.filter(product => !product.inStock);
@@ -31,9 +30,13 @@ console.log(notavaibleDevice); //qui mi stampa nel console.log i prodotti non di
 
 
 
-// Esercizio: Calcola il valore totale di tutti gli articoli nel carrello
+
+
+
+// ESERCIZIO 2: Calcola il valore totale di tutti gli articoli nel carrello
 // considerando la quantità e applicando uno sconto del 10% se il totale supera 100
 
+/* 
 const shoppingCart = [
     { item: "Book", price: 15, quantity: 2 },
     { item: "Pen", price: 2, quantity: 10 },
@@ -51,4 +54,25 @@ if (totalCart > 100) {
     }
 
 console.log("totale: €", totalCart);
+*/
+
+
+
+
+
+// ESERCIZIO 3: Trova il primo utente che è sia attivo che ha il ruolo di admin
+// Poi controlla se c’è almeno un utente proveniente dall’Italia
+
+const users = [
+    { id: 1, name: "John", active: true, role: "user", country: "USA" },
+    { id: 2, name: "Maria", active: false, role: "admin", country: "Spain" },
+    { id: 3, name: "Luigi", active: true, role: "admin", country: "Italy" },
+    { id: 4, name: "Anna", active: true, role: "user", country: "Germany" },
+  ]
+
+const activeUser = users.find((user) => {
+    return user.active && user.role == ("admin");
+});
+
+console.log(activeUser);
 
