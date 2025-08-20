@@ -62,7 +62,7 @@ console.log("totale: €", totalCart);
 
 // ESERCIZIO 3: Trova il primo utente che è sia attivo che ha il ruolo di admin
 // Poi controlla se c’è almeno un utente proveniente dall’Italia
-
+/*
 const users = [
     { id: 1, name: "John", active: true, role: "user", country: "USA" },
     { id: 2, name: "Maria", active: false, role: "admin", country: "Spain" },
@@ -78,7 +78,7 @@ console.log(activeUser);
 
 const italianStudents = users.some(user => user.country == "Italy");
 console.log(italianStudents)
-
+*/
 /*
 oppure lo verificiamo stampando un messaggio se risponde al requisito:
 if (italianStudents) {
@@ -94,6 +94,7 @@ array.some((elementoCorrente, indice, array) => {
     // restituisce true o false in base alla condizione
   });
 */
+
 
 
 
@@ -125,14 +126,31 @@ console.log(topStudents);
 
 
 
-
 // ESERCIZIO 5: Estrai tutti i tag da tutti i post in un unico array,
 // rimuovendo i duplicati e ordinandoli in ordine alfabetico
-/*
+
 const blogPosts = [
     { title: "Post 1", tags: ["javascript", "web", "frontend"] },
     { title: "Post 2", tags: ["nodejs", "backend", "javascript"] },
     { title: "Post 3", tags: ["react", "frontend", "web"] },
     { title: "Post 4", tags: ["mongodb", "database", "backend"] },
   ]
-  */
+
+
+const newArray = blogPosts.flatMap(post => post.tags); 
+//ogni oggetto di blogPosts, che noi abbiamo chiamato "post", 
+//si trasforma nel contenuto di "tags" e quindi avremo un nuovo array 
+//con il contenuto di tags.
+console.log(newArray);
+//flatMap ci permette di trasformare come map e si unificare come flat.
+
+const duplicatesRemove = [...new Set(newArray)];
+/*per eliminare i duplicati utiliziamo "set" che non accetta 
+duplicati e di conseguenza li elimina automaticamente. Perché
+"Set" è un oggetto di JavaScript che può contenere solo valori unici.
+[...Set] trasforma il Set di nuovo in un array.
+Scrivendo new Set(newArray), creiamo un Set a partire dall’array newArray.*/
+console.log(duplicatesRemove);
+
+const alphabeticOrder = duplicatesRemove.sort();
+console.log(alphabeticOrder);
