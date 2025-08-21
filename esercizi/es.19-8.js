@@ -158,6 +158,7 @@ console.log(alphabeticOrder);
 
 
 
+
 //ESERCIZI 6: Controlla se tutte le temperature sono sotto lo zero (0°C)
 // Poi filtra solo i giorni con temperatura negativa
 
@@ -179,10 +180,28 @@ const underZero = temperatures.some(under => !(under.temp <= 0))
 console.log(underZero)
 */
 
-// opppure con il metodo EVER
+// oppure con il metodo EVERY che controlla tutti i parametri temp e non si ferma 
+//al primo che rispetta la condizione come invece fa SOME
 const allUnderZero = temperatures.every(under => under.temp < 0);
 console.log(allUnderZero)
 
 const negativeT = temperatures.filter(under => under.temp < 0);
 console.log(negativeT)
 
+
+
+
+
+
+//ESERCIZIO 7: Crea una stringa formattata di indirizzi email separati da punto e virgola
+// Formato: "nome.cognome@azienda.com"
+
+const employees = [
+    { firstName: "John", lastName: "Doe", department: "IT" },
+    { firstName: "Jane", lastName: "Smith", department: "HR" },
+    { firstName: "Bob", lastName: "Johnson", department: "Sales" },
+    { firstName: "Alice", lastName: "Brown", department: "IT" },
+  ]
+  
+  const company = "techcorp"
+  
