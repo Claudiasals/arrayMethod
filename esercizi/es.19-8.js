@@ -134,10 +134,10 @@ const blogPosts = [
     { title: "Post 2", tags: ["nodejs", "backend", "javascript"] },
     { title: "Post 3", tags: ["react", "frontend", "web"] },
     { title: "Post 4", tags: ["mongodb", "database", "backend"] },
-  ]
+]
 
 
-const newArray = blogPosts.flatMap(post => post.tags); 
+const newArray = blogPosts.flatMap(post => post.tags);
 //ogni oggetto di blogPosts, che noi abbiamo chiamato "post", 
 //si trasforma nel contenuto di "tags" e quindi avremo un nuovo array 
 //con il contenuto di tags.
@@ -168,7 +168,7 @@ const temperatures = [
     { day: "Wednesday", temp: 1 },
     { day: "Thursday", temp: -3 },
     { day: "Friday", temp: 0 },
-  ]
+]
 /*
 const underZero = temperatures.some(under => under.temp > 0);
 console.log(underZero)
@@ -196,12 +196,116 @@ console.log(negativeT)
 //ESERCIZIO 7: Crea una stringa formattata di indirizzi email separati da punto e virgola
 // Formato: "nome.cognome@azienda.com"
 
+/*
 const employees = [
     { firstName: "John", lastName: "Doe", department: "IT" },
     { firstName: "Jane", lastName: "Smith", department: "HR" },
     { firstName: "Bob", lastName: "Johnson", department: "Sales" },
     { firstName: "Alice", lastName: "Brown", department: "IT" },
-  ]
-  
-  const company = "techcorp"
-  
+]
+
+const company = "techcorp"
+
+const email = employees //utilizzare + metodi mandandoli a capo
+    .map(user => `${user.firstName}.${user.lastName}@${company}.com`) //costruisco l'email
+    .join("; ")
+console.log(email)
+*/
+
+/* join trasforma l'array in una stringa formattata con tutti gli elementi attaccati. 
+Il contenuto tra le parentesi di join funziona da "SEPARATORE" tra gli elementi; 
+Serve per serve per inserire spazi,punteggiatura o qualsiasi testo tra gli elementi 
+quando li unisci in un unica stringa. */
+
+
+
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+//ESERCIZIO 8: //Raggruppa le transazioni per categoria e calcola 
+//il totale speso per ciascuna transazione
+
+/*
+utilizziamo reduce per raggruppare con l accumulatore?
+ma come????? 
+e poi ancora reduce per calcolare.
+
+const transactions = [
+  { id: 1, category: "Food", amount: 25 },
+  { id: 2, category: "Transport", amount: 15 },
+  { id: 3, category: "Food", amount: 30 },
+  { id: 4, category: "Entertainment", amount: 50 },
+  { id: 5, category: "Transport", amount: 20 },
+  { id: 6, category: "Food", amount: 15 },
+]
+
+const categoriesGroups = transactions.reduce((acc, t) => {
+ [] // creo un array vuoto perché la categoria che mi serve non esiste
+}
+
+*/
+
+
+
+//ESERCIZIO 9: Calcola l’età media degli utenti che hanno l’email verificata
+
+const userData = [
+    { name: "Tom", age: 25, emailVerified: true },
+    { name: "Lisa", age: 30, emailVerified: false },
+    { name: "Mike", age: 22, emailVerified: true },
+    { name: "Sarah", age: 28, emailVerified: true },
+    { name: "James", age: 35, emailVerified: false },
+]
+
+
+const verifiedUsers = userData.filter(user => user.emailVerified);
+// filtrimamo i verificati , in automatico ci darà i valori true
+console.log(verifiedUsers)
+
+const average = verifiedUsers.reduce((acc, userA) => acc + userA.age, 0) / verifiedUsers.length;
+/* nella parentesi di reduce mettiamo i suoi parametri, ovvero: 
+l'accumulatore che serve ad accumulare i valori, in questo caso a sommare le età, 
+e il secondo è il valore da sommare quindi le età degli user. 
+Poi => per dirgli cosa fare con quei valori */
+
+console.log(average)
+
+
+
+// ESERCIZIO 10: Trova l’indice del task con id 3 ed eliminalo dall’array
+// Poi aggiungi un nuovo task nella stessa posizione
+
+const tasks = [
+    { id: 1, task: "Study JavaScript", completed: true },
+    { id: 2, task: "Practice coding", completed: false },
+    { id: 3, task: "Read documentation", completed: false },
+    { id: 4, task: "Build project", completed: false },
+]
+
+const newTask = { id: 5, task: "Review code", completed: false };
+
+/*
+const find = tasks.findIndex((item) => {
+    return item.id === 3;
+})
+
+console.log(find)
+*/
+
+tasks.splice(2, 1, newTask); 
+console.log(tasks);
+
+/* nelle parentesi di splice troviamo al primo parametro il num 2 
+che è la posizione di partenza, quindi il 3^ oggetto nell'array, 
+il secondo parametro di splice è 1 ovvero quanti elementi deve eliminare, 
+mentre dal terzo parametro ciò che deve essere aggiunto e quindi "newTask" */
+
+/* SINTASSI DI SPLICE:
+array.splice(start, deleteCount, item1, item2, ...);
+Parametri:
+start → la posizione (indice) da cui cominciare a modificare l’array.
+deleteCount → quanti elementi eliminare dall’array a partire da start.
+item1, item2, ... → (opzionale) gli elementi che vuoi aggiungere 
+all’array a partire da start. */
+
