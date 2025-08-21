@@ -342,3 +342,21 @@ console.log(double);
  const overOneundred = double.filter(n => n >= 100);
  console.log(overOneundred)
 */
+
+
+
+// ESERCIZIO 12: Appiattisci la struttura di array annidati e filtra i numeri minori di 5
+
+const nestedNumbers = [
+    [1, 2, [3, 4]],
+    [5, [6, [7, 8]]],
+    [9, 10],
+    [[11, 12], 13],
+  ]
+  
+const flatNumbers = nestedNumbers
+.flat(3)
+.filter (number => number>5);
+
+console.log(flatNumbers);
+
