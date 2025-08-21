@@ -154,3 +154,35 @@ console.log(duplicatesRemove);
 
 const alphabeticOrder = duplicatesRemove.sort();
 console.log(alphabeticOrder);
+
+
+
+
+//ESERCIZI 6: Controlla se tutte le temperature sono sotto lo zero (0°C)
+// Poi filtra solo i giorni con temperatura negativa
+
+const temperatures = [
+    { day: "Monday", temp: -2 },
+    { day: "Tuesday", temp: -5 },
+    { day: "Wednesday", temp: 1 },
+    { day: "Thursday", temp: -3 },
+    { day: "Friday", temp: 0 },
+  ]
+/*
+const underZero = temperatures.some(under => under.temp > 0);
+console.log(underZero)
+*/
+//oppure con negazione NOT(!) 
+/*
+const underZero = temperatures.some(under => !(under.temp <= 0))
+
+console.log(underZero)
+*/
+
+// opppure con il metodo EVER
+const allUnderZero = temperatures.every(under => under.temp < 0);
+console.log(allUnderZero)
+
+const negativeT = temperatures.filter(under => under.temp < 0);
+console.log(negativeT)
+
