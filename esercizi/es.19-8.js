@@ -293,7 +293,7 @@ const find = tasks.findIndex((item) => {
 console.log(find)
 */
 
-tasks.splice(2, 1, newTask); 
+tasks.splice(2, 1, newTask);
 console.log(tasks);
 
 /* nelle parentesi di splice troviamo al primo parametro il num 2 
@@ -309,3 +309,36 @@ deleteCount → quanti elementi eliminare dall’array a partire da start.
 item1, item2, ... → (opzionale) gli elementi che vuoi aggiungere 
 all’array a partire da start. */
 
+
+//ESERCIZIO 11: Raddoppia i punteggi di tutti gli studenti che hanno superato l’esame (score >= 60)
+// e restituisci solo quelli con punteggio finale sopra 100
+
+const examScores = [
+    { student: "Alex", score: 45 },
+    { student: "Beth", score: 65 },
+    { student: "Carl", score: 55 },
+    { student: "Dana", score: 70 },
+    { student: "Eric", score: 80 },
+]
+
+const double = examScores.map(scoreEx => {
+    if (scoreEx.score > 60) {
+        return scoreEx.score * 2;
+    } else {
+        return scoreEx > 100;
+    }
+});
+
+console.log(double);
+
+/*
+const double = examScores
+  .filter(n => n >= 60);
+  .map(n => n.score * 2)
+  
+
+console.log(double);
+
+ const overOneundred = double.filter(n => n >= 100);
+ console.log(overOneundred)
+*/
