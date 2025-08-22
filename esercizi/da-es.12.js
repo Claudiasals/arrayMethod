@@ -14,6 +14,7 @@ const flatNumbers = nestedNumbers
 console.log(flatNumbers);
 
 
+
 // ESERCIZIO 13: Ordina i libri prima per anno (crescente), poi per titolo (in ordine alfabetico)
 
 const library = [
@@ -86,6 +87,7 @@ const transactions = [
   console.log(selectedProducts);
 
 
+
 // ESERCIZIO 15: Converti un array di coppie chiave-valore in un oggetto
 
 const keyValuePairs = [
@@ -100,6 +102,23 @@ const obj = Object.fromEntries(keyValuePairs);
 console.log(obj)
 
 
+
+// ESERCIZIO 16: Aggiungi una proprietà 'hasDiscount' a ciascun prodotto
+// Impostala su true se uno dei tag include 'sale' o 'promo'
+
+const catalog = [
+    { id: 1, name: "Tablet", tags: ["electronics", "sale"] },
+    { id: 2, name: "Chair", tags: ["furniture", "office"] },
+    { id: 3, name: "Desk", tags: ["furniture", "promo", "office"] },
+    { id: 4, name: "Lamp", tags: ["lighting", "home"] },
+  ]
+
+catalog.forEach(item => { 
+    item.hasDiscount = item.tags.includes("sale") || item.tags.includes("promo")
+});
+// includes serve a verificare se un valore specifico è presente 
+// in un array e restituisce un valore booleano
+  console.log(catalog)
 
 
 
