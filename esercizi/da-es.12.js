@@ -31,6 +31,70 @@ const library = [
   const forTitle = library.sort((a, b) => a.title - b.title);
   console.log(forTitle);
 
+
+
+//ESERCIZIO 8: //Raggruppa le transazioni per categoria e calcola 
+//il totale speso per ciascuna transazione
+
+
+const transactions = [
+    { id: 1, category: "Food", amount: 25 },
+    { id: 2, category: "Transport", amount: 15 },
+    { id: 3, category: "Food", amount: 30 },
+    { id: 4, category: "Entertainment", amount: 50 },
+    { id: 5, category: "Transport", amount: 20 },
+    { id: 6, category: "Food", amount: 15 },
+  ]
+
+
+  const categories = transactions.reduce((acc, item) => {
+      // la categoria non esiste ancora nell'accumulatore, la inizializziamo a 0
+    if (!acc[item.category]) {
+        //le quadre servono per accedere a una proprietà di un oggetto usando una stringa dinamica, 
+        //mentre quando usiamo il punto è perché conosciamo già il nome della proprietà.
+        acc[item.category] = 0;
+    }
+    //aggiungi l'importo
+    acc[item.category] += item.amount;
+    return acc; // return fondamentale! xke se non ritorni l’accumulatore, 
+    //alla prossima iterazione accumulatore sarà undefined.
+  }, {});
+
+  console.log(categories);
+
+
+
+  // ESERCIZIO 14: Filtra i prodotti che appartengono ad almeno una delle categorie selezionate
+
+  const inventory = [
+    { name: "Shirt", category: "Clothing", price: 30 },
+    { name: "Laptop", category: "Electronics", price: 1000 },
+    { name: "Shoes", category: "Footwear", price: 80 },
+    { name: "Phone", category: "Electronics", price: 600 },
+    { name: "Jeans", category: "Clothing", price: 50 },
+    { name: "Watch", category: "Accessories", price: 200 },
+  ]
+  
+  const selectedCategories = ["Electronics", "Clothing"]
+
+  console.log(selectedCategories);
+
+  const selectedProducts = selectedCategories.filter(item => selectedCategories.includes(item.category));
+  // creo una variabile, applico filter e gli dico: prendi ogni oggetto, guarda selectedCateories 
+  //e applica il metodo includes che ci permette di includere nle nuovo oggetto qualcosa di specifico, 
+  //e gli diciamo tra parentesi di includere tutti gli oggetti con le categorie appartenenti a selectedCategory
+  console.log(selectedProducts);
+
+
+
+
+  
+
+
+
+
+
+
   
 
 

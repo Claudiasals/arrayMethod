@@ -17,6 +17,7 @@ console.log(productsInStock);
 
 const upperCases = productsInStock.map(product => product.name.toUpperCase());
 console.log(upperCases);
+
 //Il metodo .map() serve a creare un nuovo array trasformando ogni elemento di un array esistente.
 //toUpperCase è una funzione quindi va utilizzata ll'interno di un metodo.
 
