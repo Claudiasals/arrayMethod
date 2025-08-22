@@ -140,11 +140,35 @@ console.log(emailUpperCase)
 
 
 
+// ESERCIZIO 18: Trova il primo mese in cui tutte le settimane hanno avuto vendite sopra i 1000
+// Restituisci l’indice del mese e verifica se anche i mesi successivi rispettano questa condizione
 
+const monthlySales = [
+    { month: "Jan", weeks: [800, 1200, 900, 1100] },
+    { month: "Feb", weeks: [1100, 1200, 1500, 1300] },
+    { month: "Mar", weeks: [1200, 1100, 1400, 1300] },
+    { month: "Apr", weeks: [900, 1000, 1100, 800] },
+    { month: "May", weeks: [1100, 1200, 1300, 1400] },
+  ]
 
+const topMonth = monthlySales.find(item => item.weeks.every (week => week > 1000));
+console.log(topMonth)
 
-  
+const indexTopMonth = monthlySales.findIndex(item => item === topMonth);
+console.log(indexTopMonth);
 
+const nextMonths = monthlySales.slice(indexTopMonth + 1); 
 
+const verifiedEveryMonth = nextMonths.map(item => item.weeks.every (week => week > 1000));
+console.log("Nei mesi successivi viene rispettata questa condizione:", verifiedEveryMonth)
 
+// map cicla su ogni mese e restituisce un array con il booleano per ogni mese
+
+/*
+const nextMonths = monthlySales.slice(indexTopMonth + 1); 
+
+const verifiedEveryMonth = nextMonths.every(item => item.weeks.every (week => week > 1000));
+console.log("Nei mesi successivi viene rispettata questa condizione:", verifiedEveryMonth)
+*/
+// slice(indexTopMonth + 1) = parti dai mesi dopo il topMonth
 
