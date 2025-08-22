@@ -1,6 +1,6 @@
 // ESERCIZIO 1: Dato un array di prodotti, filtra solo quelli disponibili in magazzino 
 // e restituisci un array con i loro nomi in maiuscolo 
-/* const products = [
+const products = [
     { id: 1, name: "Laptop", price: 999, inStock: true },
     { id: 2, name: "Mouse", price: 25, inStock: false },
     { id: 3, name: "Keyboard", price: 75, inStock: true },
@@ -14,8 +14,12 @@ const productsInStock = products.filter((product) => {
 });
 
 console.log(productsInStock);
-*/
-//const productsNotInStock
+
+const upperCases = productsInStock.map(product => product.name.toUpperCase());
+console.log(upperCases);
+//Il metodo .map() serve a creare un nuovo array trasformando ogni elemento di un array esistente.
+//toUpperCase è una funzione quindi va utilizzata ll'interno di un metodo.
+
 
 /*const notavaibleDevice = products.filter(product => !product.inStock);
 console.log(notavaibleDevice); //qui mi stampa nel console.log i prodotti non disponibili*/
@@ -226,10 +230,6 @@ quando li unisci in un unica stringa. */
 //ESERCIZIO 8: //Raggruppa le transazioni per categoria e calcola 
 //il totale speso per ciascuna transazione
 
-/*
-utilizziamo reduce per raggruppare con l accumulatore?
-ma come????? 
-e poi ancora reduce per calcolare.
 
 const transactions = [
   { id: 1, category: "Food", amount: 25 },
@@ -240,16 +240,27 @@ const transactions = [
   { id: 6, category: "Food", amount: 15 },
 ]
 
-const categoriesGroups = transactions.reduce((acc, t) => {
- [] // creo un array vuoto perché la categoria che mi serve non esiste
+/*
+const categorieFood = transactions.reduce((acc, t) => {
+if (t.category === "Food"){
+    console.log(acc)
+    return acc + t.amount 
 }
+} ,0 )
 
+console.log("food",categorieFood)
 */
 
+const categoriaFood = transactions.forEach
 
+const categoriaTransport
+
+const categoriaEntertainment
+
+oppure map per creare 3 oggetti con le 3 categorie
 
 //ESERCIZIO 9: Calcola l’età media degli utenti che hanno l’email verificata
-
+/*
 const userData = [
     { name: "Tom", age: 25, emailVerified: true },
     { name: "Lisa", age: 30, emailVerified: false },
@@ -268,11 +279,11 @@ const average = verifiedUsers.reduce((acc, userA) => acc + userA.age, 0) / verif
 l'accumulatore che serve ad accumulare i valori, in questo caso a sommare le età, 
 e il secondo è il valore da sommare quindi le età degli user. 
 Poi => per dirgli cosa fare con quei valori */
-
+/*
 console.log(average)
+*/
 
-
-
+/*
 // ESERCIZIO 10: Trova l’indice del task con id 3 ed eliminalo dall’array
 // Poi aggiungi un nuovo task nella stessa posizione
 
@@ -292,10 +303,10 @@ const find = tasks.findIndex((item) => {
 
 console.log(find)
 */
-
+/*
 tasks.splice(2, 1, newTask);
 console.log(tasks);
-
+*/
 /* nelle parentesi di splice troviamo al primo parametro il num 2 
 che è la posizione di partenza, quindi il 3^ oggetto nell'array, 
 il secondo parametro di splice è 1 ovvero quanti elementi deve eliminare, 
@@ -312,7 +323,7 @@ all’array a partire da start. */
 
 //ESERCIZIO 11: Raddoppia i punteggi di tutti gli studenti che hanno superato l’esame (score >= 60)
 // e restituisci solo quelli con punteggio finale sopra 100
-
+/*
 const examScores = [
     { student: "Alex", score: 45 },
     { student: "Beth", score: 65 },
@@ -330,7 +341,7 @@ const double = examScores.map(scoreEx => {
 });
 
 console.log(double);
-
+*/
 /*
 const double = examScores
   .filter(n => n >= 60);
@@ -345,18 +356,4 @@ console.log(double);
 
 
 
-// ESERCIZIO 12: Appiattisci la struttura di array annidati e filtra i numeri minori di 5
-
-const nestedNumbers = [
-    [1, 2, [3, 4]],
-    [5, [6, [7, 8]]],
-    [9, 10],
-    [[11, 12], 13],
-  ]
-  
-const flatNumbers = nestedNumbers
-.flat(3)
-.filter (number => number>5);
-
-console.log(flatNumbers);
 
