@@ -121,6 +121,23 @@ catalog.forEach(item => {
   console.log(catalog)
 
 
+// esercizio 17: Estrai le email degli utenti attivi con più di 25 anni che si sono iscritti dopo il 2020
+// Restituiscile in minuscolo
+
+const accounts = [
+    { email: "John@EXAMPLE.com", age: 28, active: true, joinYear: 2021 },
+    { email: "MARY@example.COM", age: 24, active: true, joinYear: 2022 },
+    { email: "Bob@EXAMPLE.com", age: 30, active: false, joinYear: 2021 },
+    { email: "alice@Example.COM", age: 26, active: true, joinYear: 2019 },
+    { email: "TOM@example.com", age: 27, active: true, joinYear: 2023 },
+  ]
+
+const activeUser = accounts.filter(item => item.active === true && item.age > 25 && item.joinYear > 2020);
+console.log(activeUser)
+
+const emailUpperCase = activeUser.map(item => item.email.toLowerCase());
+console.log(emailUpperCase)
+
 
 
 
