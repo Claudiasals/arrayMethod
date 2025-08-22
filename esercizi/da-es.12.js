@@ -86,9 +86,21 @@ const transactions = [
   console.log(selectedProducts);
 
 
+// ESERCIZIO 15: Converti un array di coppie chiave-valore in un oggetto
+
+const keyValuePairs = [
+    ["name", "John"],
+    ["age", 30],
+    ["city", "New York"],
+    ["profession", "Developer"],
+    ["hobby", "Photography"],
+  ]
+
+const obj = Object.fromEntries(keyValuePairs);
+console.log(obj)
 
 
-  
+
 
 
 
