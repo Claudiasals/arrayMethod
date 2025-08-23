@@ -251,7 +251,7 @@ if (t.category === "Food"){
 
 console.log("food",categorieFood)
 */
-
+/*
 const categoriaFood = transactions.forEach
 
 const categoriaTransport
@@ -259,7 +259,7 @@ const categoriaTransport
 const categoriaEntertainment
 
 oppure map per creare 3 oggetti con le 3 categorie
-
+*/
 //ESERCIZIO 9: Calcola l’età media degli utenti che hanno l’email verificata
 /*
 const userData = [
@@ -357,4 +357,50 @@ console.log(double);
 
 
 
+// PROVA DI ALTIN ES 19
+const orders = [
+    {
+        orderId: "A001",
+        items: [
+            { product: "Widget", price: 10, quantity: 3 },
+            { product: "Gadget", price: 20, quantity: 2 },
+        ],
+    },
+    {
+        orderId: "A002",
+        items: [
+            { product: "Widget", price: 10, quantity: 5 },
+            { product: "Tool", price: 15, quantity: 6 },
+        ],
+    },
+    {
+        orderId: "A003",
+        items: [
+            { product: "Gadget", price: 20, quantity: 8 },
+            { product: "Tool", price: 15, quantity: 4 },
+        ],
+    },
+]
 
+
+const totatlDiscount = orders.map(order => {
+    const totalItem = order.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  
+    let discount = 0;
+    if(totalItem >= 5) discount = 0.05;
+    else if(totalItem > 10) discount = 0.10;
+  
+    const totalPrice = order.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  
+  
+    const totalAfterDiscount = totalPrice * (1 - discount);
+  
+    return {
+      orderId: order.orderId,
+      totalItem,
+      discount: discount * 100 + '%',
+      total: totalAfterDiscount
+    };
+  });
+  
+  console.log("Array di oggetti con orderId e finalPrice:", totatlDiscount);

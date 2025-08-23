@@ -10,7 +10,7 @@ const blogPosts = [
 
 const newArray = blogPosts.flatMap(t => t.tags); //crea un array con i tags
 
-const removeAndOrder = Array.from(new Set(newArray)).sort(); 
+const removeAndOrder = Array.from(new Set(newArray)).sort();
 //set toglie duplicati e sort ordina alfabeticamente
 //Array.from trasforma il set in un array
 //sort x ordine alfabetico
@@ -196,7 +196,7 @@ console.log("Nei mesi successivi viene rispettata questa condizione:", verifiedE
 
 
 
-// ESERCIZIO 19: Calcola il prezzo totale per ciascun ordine
+// ESERCIZIO 19: Calcola il prezzo totale per ciascun ordine.
 // Applica sconti in base alla quantità: 5-9 articoli = 5%, 10+ articoli = 10%
 // Restituisci un array di oggetti con orderId e finalPrice
 
@@ -226,18 +226,55 @@ const orders = [
 
 // order è il singolo obj ordine nell'array orders
 // item è il singolo oggetto prodotto nell'array items
-
+// sum è l'accumulatore
 
 const totalPriceOrder = orders.map(order => {
     return order.items.reduce((sum, item) => {
-        return sum + item.price * item.quantity}, 0);
+        return sum + item.price * item.quantity
+    }, 0);
 });
-  
-  console.log("il prezzo totale per ciascun ordine è", totalPriceOrder)
- 
+console.log("il prezzo totale per ciascun ordine è", totalPriceOrder)
+
+
 /* "reduce" reitera ma restituisce un soltanto un unico valore. 
 Per avere più valori, come qui che ci servono tutti i prezzi totale degli ordini 
 serve "map" che ci può creare un array con tutti i valori. mentre reduce somma e 
 moltiplica price a quantity per avere  il prezzo totale per ogni ordine. 
 Quindi annidando reduce dentro map è come se salvassimo ogni dato reiterato nella variabile 
 di map per inserirli nell'array */
+
+//SOMMO I PREZZI DI OGNI ORDINE ED OTTENGO UN ARRAY
+const sumPriceOrder = orders.map(order => {
+    return order.items.reduce((sum, item) => {
+        return sum + item.price;
+    }, 0);
+});
+
+console.log("i prezzi sommati di ogni ordine:", sumPriceOrder)
+
+
+//SOMMO LE QUANTITà DI PRODOTTI DI OGNI ORDINE ED OTTENGO UN ARRAY
+
+const productsQuantity = orders.map(order => {
+    return order.items.reduce((sum, item) => {
+        return sum + item.quantity;
+    }, 0);
+});
+console.log("il numero di prodotti presenti in ogni ordine:", productsQuantity);
+
+const discount = 0;
+
+if (productsQuantity < 9 && productsQuantity > 5) {
+   discount = totalPriceOrder * 0.05;
+} else if (productsQuantity >= 10) {
+   discount = totalPriceOrder * 0.10;
+};
+
+console.log("questo è lo sconto da applicare:", discount)
+
+const finalPrice = totalPriceOrder - discount;
+
+console.log("questo è il cazzo di prezzo finale:", finalPrice)
+
+
+
