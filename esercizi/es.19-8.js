@@ -146,7 +146,7 @@ const newArray = blogPosts.flatMap(post => post.tags);
 //ogni oggetto di blogPosts, che noi abbiamo chiamato "post", 
 //si trasforma nel contenuto di "tags" e quindi avremo un nuovo array 
 //con il contenuto di tags.
-console.log(newArray);
+console.log("tags dei posts", newArray);
 //flatMap ci permette di trasformare come map e si unificare come flat.
 
 const duplicatesRemove = [...new Set(newArray)];
@@ -155,10 +155,10 @@ duplicati e di conseguenza li elimina automaticamente. Perché
 "Set" è un oggetto di JavaScript che può contenere solo valori unici.
 [...Set] trasforma il Set di nuovo in un array.
 Scrivendo new Set(newArray), creiamo un Set a partire dall’array newArray.*/
-console.log(duplicatesRemove);
+console.log("rimuovo i doppioni", duplicatesRemove);
 
 const alphabeticOrder = duplicatesRemove.sort();
-console.log(alphabeticOrder);
+console.log("ordone alfabetico", alphabeticOrder);
 
 
 

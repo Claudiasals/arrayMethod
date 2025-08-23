@@ -1,3 +1,23 @@
+// ESERCIZIO 5: EXTRACT ALL TAGS FROM ALL POSTS INTO A SINGLE ARRAY. REMOVING DUPLICATES
+//AND SORTING ALPHABETICALLY
+
+const blogPosts = [
+    { title: "Post 1", tags: ["javascript", "web", "frontend"] },
+    { title: "Post 2", tags: ["nodejs", "backend", "javascript"] },
+    { title: "Post 3", tags: ["react", "frontend", "web"] },
+    { title: "Post 4", tags: ["mongodb", "database", "backend"] },
+]
+
+const newArray = blogPosts.flatMap(t => t.tags); //crea un array con i tags
+
+const removeAndOrder = Array.from(new Set(newArray)).sort(); 
+//set toglie duplicati e sort ordina alfabeticamente
+//Array.from trasforma il set in un array
+//sort x ordine alfabetico
+
+console.log("esercizio 5", removeAndOrder);
+
+
 // ESERCIZIO 12: Appiattisci la struttura di array annidati e filtra i numeri minori di 5
 
 const nestedNumbers = [
