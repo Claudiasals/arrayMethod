@@ -26,6 +26,8 @@ const orders = [
     },
 ]
 
+/* CALCOLIAMO IL TOTALE DEL CARRELLO, POI LE QUANTITA' DI OGNI CARRELLO PER POTER METTERE LE
+CONDIZIONI PER LO SCONTO. IN FINE CALCOLIAMO IL PREZZO TOTALE INCLUSO DI SCONTO */
 const finalPrice = orders.map(order => {
     // 1. Calcola il prezzo totale dell'ordine
     const totalPrice = order.items.reduce((sum, item) => {
