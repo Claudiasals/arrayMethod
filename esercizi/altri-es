@@ -1,0 +1,27 @@
+Perfetto 👌 allora ti preparo una lista di esercizi nello stesso stile del tuo esempio, tutti centrati sui metodi degli array.
+
+Ecco alcuni:
+
+```js
+// Exercise 1: Given an array of numbers, map each number to its square
+
+// Exercise 2: Given an array of strings, filter only the strings that have more than 5 characters
+
+// Exercise 3: Given an array of users with "age" property, filter only the users who are adults (age >= 18)
+
+// Exercise 4: Given an array of words, use map to convert them all to uppercase
+
+// Exercise 5: Given an array of numbers, reduce it to calculate the sum of all numbers
+
+// Exercise 6: Given an array of numbers, use reduce to find the maximum value
+
+// Exercise 7: Given an array of products with "price", filter only the products that cost less than 50
+
+// Exercise 8: Given an array of names, use forEach to print each name with "Hello" before it
+
+// Exercise 9: Given an array of objects with "quantity", reduce it to calculate the total quantity
+
+// Exercise 10: Given an array of strings, sort them alphabetically
+```
+
+
