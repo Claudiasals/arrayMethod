@@ -13,13 +13,13 @@ const productsInStock = products.filter((product) => {
     return product.inStock;
 });
 
-console.log(productsInStock);
+console.log("prodotti disponibili in stock:", productsInStock);
 
 const upperCases = productsInStock.map(product => product.name.toUpperCase());
-console.log(upperCases);
+console.log("nomi prodotti in maiusclo:", upperCases);
 
 //Il metodo .map() serve a creare un nuovo array trasformando ogni elemento di un array esistente.
-//toUpperCase è una funzione quindi va utilizzata ll'interno di un metodo.
+//toUpperCase è una funzione quindi va utilizzata all'interno di un metodo.
 
 
 /*const notavaibleDevice = products.filter(product => !product.inStock);
@@ -41,7 +41,7 @@ console.log(notavaibleDevice); //qui mi stampa nel console.log i prodotti non di
 // ESERCIZIO 2: Calcola il valore totale di tutti gli articoli nel carrello
 // considerando la quantità e applicando uno sconto del 10% se il totale supera 100
 
-/* 
+
 const shoppingCart = [
     { item: "Book", price: 15, quantity: 2 },
     { item: "Pen", price: 2, quantity: 10 },
@@ -55,11 +55,11 @@ let totalCart = shoppingCart.reduce((acc, product) => {
 );
 
 if (totalCart > 100) {
-        totalCart = totalCart - totalCart * 0.1;
-    }
+    totalCart = totalCart - totalCart * 0.1;
+}
 
 console.log("totale: €", totalCart);
-*/
+
 
 
 
@@ -67,23 +67,23 @@ console.log("totale: €", totalCart);
 
 // ESERCIZIO 3: Trova il primo utente che è sia attivo che ha il ruolo di admin
 // Poi controlla se c’è almeno un utente proveniente dall’Italia
-/*
+
 const users = [
     { id: 1, name: "John", active: true, role: "user", country: "USA" },
     { id: 2, name: "Maria", active: false, role: "admin", country: "Spain" },
     { id: 3, name: "Luigi", active: true, role: "admin", country: "Italy" },
     { id: 4, name: "Anna", active: true, role: "user", country: "Germany" },
-  ]
+]
 
 const activeUser = users.find((user) => {
     return user.active && user.role == ("admin");
 });
 
-console.log(activeUser);
+console.log("Il primo utente admin attivo:", activeUser);
 
 const italianStudents = users.some(user => user.country == "Italy");
 console.log(italianStudents)
-*/
+
 /*
 oppure lo verificiamo stampando un messaggio se risponde al requisito:
 if (italianStudents) {
@@ -106,7 +106,7 @@ array.some((elementoCorrente, indice, array) => {
 
 // ESERCIZIO 4: Ordina gli studenti in base al voto (decrescente) 
 // e restituisci i primi 3 studenti
-/*
+
 const students = [
     { name: "Alice", grade: 85 },
     { name: "Bob", grade: 92 },
@@ -114,18 +114,19 @@ const students = [
     { name: "Diana", grade: 95 },
     { name: "Eve", grade: 88 },
     { name: "Frank", grade: 90 },
-  ]
-  
+]
+
 const decrescentStudents = students.sort((a, b) => {
     return b.grade - a.grade; // Decrescente
-});
+}); // sort esegue la sottrazione e se il risultato è negativo, il valore verrà spostato dietro
 console.log(decrescentStudents);
 
 
 const topStudents = students.slice(0, 3);
-
+/* dall'indice 0 elimina gli elementi fino al terzo elemtno (3) 
+e restituisce questi elementi eliminati */
 console.log(topStudents);
-*/
+
 
 
 
@@ -140,7 +141,6 @@ const blogPosts = [
     { title: "Post 3", tags: ["react", "frontend", "web"] },
     { title: "Post 4", tags: ["mongodb", "database", "backend"] },
 ]
-
 
 const newArray = blogPosts.flatMap(post => post.tags);
 //ogni oggetto di blogPosts, che noi abbiamo chiamato "post", 
@@ -158,14 +158,14 @@ Scrivendo new Set(newArray), creiamo un Set a partire dall’array newArray.*/
 console.log("rimuovo i doppioni", duplicatesRemove);
 
 const alphabeticOrder = duplicatesRemove.sort();
-console.log("ordone alfabetico", alphabeticOrder);
+console.log("ordine alfabetico", alphabeticOrder);
 
 
 
 
 
 //ESERCIZI 6: Controlla se tutte le temperature sono sotto lo zero (0°C)
-// Poi filtra solo i giorni con temperatura negativa
+//Poi filtra solo i giorni con temperatura negativa
 
 const temperatures = [
     { day: "Monday", temp: -2 },
@@ -174,24 +174,25 @@ const temperatures = [
     { day: "Thursday", temp: -3 },
     { day: "Friday", temp: 0 },
 ]
+
 /*
 const underZero = temperatures.some(under => under.temp > 0);
 console.log(underZero)
 */
+
 //oppure con negazione NOT(!) 
 /*
 const underZero = temperatures.some(under => !(under.temp <= 0))
-
 console.log(underZero)
 */
 
 // oppure con il metodo EVERY che controlla tutti i parametri temp e non si ferma 
-//al primo che rispetta la condizione come invece fa SOME
+// al primo che rispetta la condizione come invece fa SOME
 const allUnderZero = temperatures.every(under => under.temp < 0);
-console.log(allUnderZero)
+console.log("controlla tutte le temperature", allUnderZero)
 
 const negativeT = temperatures.filter(under => under.temp < 0);
-console.log(negativeT)
+console.log("giorni con temperature negative", negativeT)
 
 
 
@@ -201,7 +202,7 @@ console.log(negativeT)
 //ESERCIZIO 7: Crea una stringa formattata di indirizzi email separati da punto e virgola
 // Formato: "nome.cognome@azienda.com"
 
-/*
+
 const employees = [
     { firstName: "John", lastName: "Doe", department: "IT" },
     { firstName: "Jane", lastName: "Smith", department: "HR" },
@@ -212,10 +213,10 @@ const employees = [
 const company = "techcorp"
 
 const email = employees //utilizzare + metodi mandandoli a capo
-    .map(user => `${user.firstName}.${user.lastName}@${company}.com`) //costruisco l'email
-    .join("; ")
-console.log(email)
-*/
+    .map(user => `${user.firstName}.${user.lastName}@${company}.com`) //costruisco l'email creando un aarray
+    .join("; ") //trasformo in stringa
+console.log("indirizzi email:", email)
+
 
 /* join trasforma l'array in una stringa formattata con tutti gli elementi attaccati. 
 Il contenuto tra le parentesi di join funziona da "SEPARATORE" tra gli elementi; 
@@ -225,43 +226,63 @@ quando li unisci in un unica stringa. */
 
 
 
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 //ESERCIZIO 8: //Raggruppa le transazioni per categoria e calcola 
 //il totale speso per ciascuna transazione
 
 
 const transactions = [
-  { id: 1, category: "Food", amount: 25 },
-  { id: 2, category: "Transport", amount: 15 },
-  { id: 3, category: "Food", amount: 30 },
-  { id: 4, category: "Entertainment", amount: 50 },
-  { id: 5, category: "Transport", amount: 20 },
-  { id: 6, category: "Food", amount: 15 },
+    { id: 1, category: "Food", amount: 25 },
+    { id: 2, category: "Transport", amount: 15 },
+    { id: 3, category: "Food", amount: 30 },
+    { id: 4, category: "Entertainment", amount: 50 },
+    { id: 5, category: "Transport", amount: 20 },
+    { id: 6, category: "Food", amount: 15 },
 ]
 
-/*
-const categorieFood = transactions.reduce((acc, t) => {
-if (t.category === "Food"){
-    console.log(acc)
-    return acc + t.amount 
+const categories = transactions.reduce((acc, t) => {
+    if (acc.hasOwnProperty(t.category)) { //ci dice se nell'oggetto è presente la proprietà
+        return acc[t.category] += t.amount;
+    }
+    return acc[t.category] = t.amount;
+    // 0 --> {} --> {Food: 25}
+    // 1 --> {Food: 25} --> {Food: 25, Transport: 15}
+    // 2 --> {Food: 25, Transport: 15} --> {Food: 55, Transport: 15}
+    // 3 --> {Food: 55, Transport: 15} --> {Food: 55, Transport: 15, Entertainment: 50}
+    // 4 --> {Food: 55, Transport: 15, Entertainment: 50} --> {Food: 55, Transport: 35, Entertainment: 50}
+    // 5 --> {Food: 55, Transport: 35, Entertainment: 50} --> {Food: 70, Transport: 35, Entertainment: 50}
+    // return {Food: 70, Transport: 35, Entertainment: 50}
+}, {})
+
+const amountMap = {
+    Food: 0,
+    Transport: 0,
+    Entertainment: 0
 }
-} ,0 )
+console.log("Valore iniziale del nostro amountMap", amountMap)
 
-console.log("food",categorieFood)
-*/
-/*
-const categoriaFood = transactions.forEach
+for (let i = 0; i < transactions.length; i++) {
+    const category = transactions[i].category;
+    const amount = transactions[i].amount;
 
-const categoriaTransport
+    console.log("category e amount: ", category, amount)
 
-const categoriaEntertainment
+    if (amountMap.hasOwnProperty(category)) {
+        console.log("Se amountMap ha la categoria ", category, " allora somma l'amount ", amount, " al valore precedente");
+        amountMap[category] += amount;
+    } else {
+        console.log("Se la categoria ", category, " non è presente impostala con valore = a ", amount);
+        amountMap[category] = amount;
+    }
+    console.log("Valore corrente di amountMap: ", amountMap)
+}
 
-oppure map per creare 3 oggetti con le 3 categorie
-*/
+console.log(amountMap)
+
+
+
+
 //ESERCIZIO 9: Calcola l’età media degli utenti che hanno l’email verificata
-/*
+
 const userData = [
     { name: "Tom", age: 25, emailVerified: true },
     { name: "Lisa", age: 30, emailVerified: false },
@@ -273,16 +294,19 @@ const userData = [
 
 const verifiedUsers = userData.filter(user => user.emailVerified);
 // filtrimamo i verificati , in automatico ci darà i valori true
-console.log(verifiedUsers)
+console.log("Utenti con email verificata:", verifiedUsers)
 
 const average = verifiedUsers.reduce((acc, userA) => acc + userA.age, 0) / verifiedUsers.length;
 /* nella parentesi di reduce mettiamo i suoi parametri, ovvero: 
 l'accumulatore che serve ad accumulare i valori, in questo caso a sommare le età, 
 e il secondo è il valore da sommare quindi le età degli user. 
 Poi => per dirgli cosa fare con quei valori */
-/*
-console.log(average)
-*/
+
+console.log("Età media degli utenti con età verificata:", average)
+
+
+
+
 
 /*
 // ESERCIZIO 10: Trova l’indice del task con id 3 ed eliminalo dall’array
@@ -385,22 +409,24 @@ const orders = [
 
 const totatlDiscount = orders.map(order => {
     const totalItem = order.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  
+
     let discount = 0;
-    if(totalItem >= 5) discount = 0.05;
-    else if(totalItem > 10) discount = 0.10;
-  
+    if (totalItem >= 5) discount = 0.05;
+    else if (totalItem > 10) discount = 0.10;
+
     const totalPrice = order.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  
-  
+
+
     const totalAfterDiscount = totalPrice * (1 - discount);
-  
+
     return {
-      orderId: order.orderId,
-      totalItem,
-      discount: discount * 100 + '%',
-      total: totalAfterDiscount
+        orderId: order.orderId,
+        totalItem,
+        discount: discount * 100 + '%',
+        total: totalAfterDiscount
     };
-  });
-  
-  console.log("Array di oggetti con orderId e finalPrice:", totatlDiscount);
+});
+
+console.log("Array di oggetti con orderId e finalPrice:", totatlDiscount);
+
+
