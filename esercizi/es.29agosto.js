@@ -1,9 +1,7 @@
 
 /*Esercizio 1: Lista Utenti Base**
 
-Crea una pagina semplice che mostri informazioni sugli utenti
-**Requisiti:**
-
+Crea una pagina semplice che mostri informazioni sugli utenti:
 * Recupera tutti gli utenti da `https://jsonplaceholder.typicode.com/users`
 * Usa `map()` per creare un elemento `<li>` per ogni utente mostrando: **nome ed email**
 * Usa `filter()` per mostrare solo gli utenti con email che terminano in **.biz**
@@ -71,11 +69,6 @@ fetch('https://jsonplaceholder.typicode.com/users') // 1. Effettua la chiamata G
         console.error('Errore nel recupero utenti:', error);
 
     });
-
-
-
-
-
 
 /*
 ### **Esercizio 2: Contatore di Todo**
