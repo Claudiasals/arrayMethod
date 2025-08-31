@@ -15,14 +15,14 @@ Crea una pagina semplice che mostri informazioni sugli utenti
 // recupera i dati dal link
 fetch('https://jsonplaceholder.typicode.com/users') // 1. Effettua la chiamata GET
     .then(risp => risp.json()) // 2. Converte la risposta in JSON
-    .then(users => { //utilizziamo i dati json. Avremo un array di utenti
+    .then(users => { //utilizziamo i dati json. Otteniamo un array di utenti
         console.log("Array di oggetti, ogni oggetto è un user", users);
         // otteniamo nome ed email
         const listNameEmail = users.map(user => `${user.name}, ${user.email}`);
 
         console.log("Array di stringhe con nome e email:", listNameEmail);
 
-        //UTILIZZO UN CICLO FOR PER ITERARE TUTTI GLI ELEMENTI DI LISTNAMEEMAIL E CREARE LA LISTA
+        //UTILIZZO UN CICLO FOR PER ITERARE TUTTI GLI ELEMENTI DI listaNameEmail E CREARE LA LISTA UL
         let listaHTML = "<ul>"; // CREO L'INIZIO DELLA LISTA
 
         for (let i = 0; i < listNameEmail.length; i++) {
@@ -36,8 +36,9 @@ fetch('https://jsonplaceholder.typicode.com/users') // 1. Effettua la chiamata G
 
         document.body.innerHTML += listaHTML; //stampo a video
 
-        //Usa `filter()` per mostrare solo gli utenti con email che terminano in .biz
+    //Uso `filter()` per mostrare solo gli utenti con email che terminano in .biz
         const bizUsers = users.filter(user => user.email.endsWith('.biz'));
+        //endsWith() -->  è un metodo delle stringhe che verifica se la stringa termina con (endsWith) il parametro scritto.
 
         console.log("Filtro utenti con email che termina per .biz", bizUsers)
 
