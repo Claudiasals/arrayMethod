@@ -14,35 +14,39 @@ Crea una pagina semplice che mostri informazioni sugli utenti
 
 // recupera i dati dal link
 fetch('https://jsonplaceholder.typicode.com/users') // 1. Effettua la chiamata GET
-  .then(risp => risp.json()) // 2. Converte la risposta in JSON
-  .then(users => { //utilizziamo i dati json. Avremo un array di utenti
-    console.log("Array di oggetti, ogni oggetto è un user", users);
-// otteniamo nome ed email
-const listNameEmail = users.map(user => `${user.name}, ${user.email}`);
+    .then(risp => risp.json()) // 2. Converte la risposta in JSON
+    .then(users => { //utilizziamo i dati json. Avremo un array di utenti
+        console.log("Array di oggetti, ogni oggetto è un user", users);
+        // otteniamo nome ed email
+        const listNameEmail = users.map(user => `${user.name}, ${user.email}`);
 
-console.log("Array di stringhe con nome e email:", listNameEmail);
+        console.log("Array di stringhe con nome e email:", listNameEmail);
 
-//UTILIZZO UN CICLO FOR PER ITERARE TUTTI GLI ELEMENTI DI LISTNAMEEMAIL E CREARE LA LISTA
-let listaHTML = "<ul>"; // CREO L'INIZIO DELLA LISTA
+        //UTILIZZO UN CICLO FOR PER ITERARE TUTTI GLI ELEMENTI DI LISTNAMEEMAIL E CREARE LA LISTA
+        let listaHTML = "<ul>"; // CREO L'INIZIO DELLA LISTA
 
-for (let i = 0; i < listNameEmail.length; i++) {
-    //inizializzo; scorro tutta la lunghezza dell'array; aggiungo 1 indice ad ogni ciclo
-  listaHTML += "<li>" + listNameEmail[i] + "</li>"; // Aggiungi un elemento <li> per ogni stringa
-} //+= aggiunge questa nuova stringa a listaHTML
+        for (let i = 0; i < listNameEmail.length; i++) {
+            //inizializzo; scorro tutta la lunghezza dell'array; aggiungo 1 indice ad ogni ciclo
+            listaHTML += "<li>" + listNameEmail[i] + "</li>"; // Aggiungi un elemento <li> per ogni stringa
+        } //+= aggiunge questa nuova stringa a listaHTML
 
-listaHTML += "</ul>"; // Chiudi la lista
+        listaHTML += "</ul>"; // Chiudi la lista
 
-console.log("ECCO LA LLISTA DEGLI UTENTI CON NOME E EMAIL: ", listaHTML)
+        console.log("ECCO LA LISTA DEGLI UTENTI CON NOME E EMAIL: ", listaHTML)
 
-document.body.innerHTML += listaHTML; //stampo a video
+        document.body.innerHTML += listaHTML; //stampo a video
 
-  })
+        //Usa `filter()` per mostrare solo gli utenti con email che terminano in **.biz**
+        const bizUsers = users.filter(user => user.email.endsWith('.biz'));
 
-  .catch(error => {
-    console.error('Errore nel recupero utenti:', error);
-  });
+        console.log("Filtro utenti con email che termina per .biz", bizUsers)
+    })
 
-  // METTERE OGNI ELEMENTO DI QUESTO ARRAY IN UN "LI" DI UN "UL"
+    .catch(error => {
+        console.error('Errore nel recupero utenti:', error);
+    });
+
+
 
 
 /*
