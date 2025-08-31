@@ -78,10 +78,10 @@ fetch('https://jsonplaceholder.typicode.com/users') // 1. Effettua la chiamata G
 /*Esercizio 2: Todo Counter
 
 Crea una pagina che mostri statistiche sulle attività (todo)
-* Recupera le todo da `https://jsonplaceholder.typicode.com/todos`
-* Usa `filter()` per separare le todo completate da quelle non completate
-* Usa `reduce()` per contare il numero di todo per ogni utente
-* Mostra nel DOM:
+1* Recupera le todo da `https://jsonplaceholder.typicode.com/todos`
+2* Usa `filter()` per separare le todo completate da quelle non completate
+3* Usa `reduce()` per contare il numero di todo per ogni utente
+4* Mostra nel DOM:
   - Numero totale di todo
   - Numero di todo completate
   - Numero di todo non completate
@@ -89,8 +89,68 @@ Crea una pagina che mostri statistiche sulle attività (todo)
   - Mostra tutti i risultati come semplici paragrafi di testo
 */
 
+//recupero i dati
+fetch('https://jsonplaceholder.typicode.com/todos') // 1. Effettua la chiamata GET
+    .then(risposta => risposta.json()) // 2. Converte la risposta in JSON
+    .then(todos => { //utilizziamo i dati json. Otteniamo un array di utenti
+        console.log("Array di oggetti di azioni todo:", todos);
+
+        //filtra le azioni completate
+        const completedActions = todos.filter(todo => todo.completed); //in automatico ci ridà i true
+        console.log("Azioni completate:", completedActions)
+
+        const incompleteActions = todos.filter(todo => !todo.completed);
+        console.log("Azioni non completate", incompleteActions)
 
 
+        //Usa `reduce()` per contare il numero di todo per ogni utente
+        let numbersActionForUser = todos.reduce((acc, obj) => {
+            if (!acc[obj.userId]) {
+                acc[obj.userId] = 0
+            }
+            acc[obj.userId]++;
+            return acc
+        })
+
+        // Mostra nel DOM L’utente con più todo (usando `reduce()`)
+        //Object.entries() trasforma l’oggetto in un array di coppie [userId, count], perché reduce non funziona sugli oggetti
+        /*Il "?" è l’operatore ternario di JavaScript. 😄
+        Serve a fare un if veloce in una sola riga. La sintassi è:
+        condizione ? valoreSeVero : valoreSeFalso
+        condizione → qualcosa che può essere true o false
+        valoreSeVero → quello che viene restituito se la condizione è vera
+        valoreSeFalso → quello che viene restituito se la condizione è falsa*/
+        let moreTodoUser = Object.entries(numbersActionForUser)//trasformo l'oggetto in un array 
+            .reduce((accMax, [userId, item]) => {
+                return item > accMax.item ? { userId, item } : accMax;
+            }, { userId: null, item: 0 });
+
+        console.log("Utente con più todo:", moreTodoUser);
+    }, {});
+
+console.log("Utenti con il numero di todo", numbersActionForUser)
+
+// Numero totale di todo
+const totalTodos = todos.length;
+document.body.innerHTML += `<p>Numero totale di todo: ${totalTodos}</p>`;
+
+// Numero di todo completate
+document.body.innerHTML += `<p>Todo completate: ${completedActions.length}</p>`;
+
+// Numero di todo non completate
+document.body.innerHTML += `<p>Todo non completate: ${incompleteActions.length}</p>`;
+
+
+     
+
+
+
+    })
+
+    .catch (error => {
+    console.error('Errore nel recupero utenti:', error);
+
+});
 
 
 
