@@ -70,74 +70,105 @@ fetch('https://jsonplaceholder.typicode.com/users') // 1. Effettua la chiamata G
 
     });
 
-/*
-### **Esercizio 2: Contatore di Todo**
+
+
+
+
+
+/*Esercizio 2: Todo Counter
 
 Crea una pagina che mostri statistiche sulle attività (todo)
-**Requisiti:**
-
 * Recupera le todo da `https://jsonplaceholder.typicode.com/todos`
 * Usa `filter()` per separare le todo completate da quelle non completate
 * Usa `reduce()` per contare il numero di todo per ogni utente
 * Mostra nel DOM:
+  - Numero totale di todo
+  - Numero di todo completate
+  - Numero di todo non completate
+  - L’utente con più todo (usando `reduce()`)
+  - Mostra tutti i risultati come semplici paragrafi di testo
+*/
 
-  * Numero totale di todo
-  * Numero di todo completate
-  * Numero di todo non completate
-  * L’utente con più todo (usando `reduce()`)
-* Mostra tutti i risultati come semplici paragrafi di testo
 
----
 
-### **Esercizio 3: Ricerca nei Titoli dei Post**
 
-Crea una lista di post ricercabile
-**Requisiti:**
 
+
+
+
+
+
+/*Esercizio 3: Ricerca nei Titoli dei Post**
+
+Crea una lista di post ricercabile:
 * Recupera tutti i post da `https://jsonplaceholder.typicode.com/posts`
 * Crea un campo di input di testo per la ricerca
 * Usa `filter()` e `includes()` per cercare all’interno dei titoli dei post
 * Mostra i post corrispondenti come lista semplice che visualizza solo i titoli
 * Usa `forEach()` per aggiungere i risultati al DOM
 * Mostra sopra la lista il **numero dei post trovati**
+*/
 
----
 
-### **Esercizio 4: Commenti per Post**
+
+
+
+
+
+
+
+
+/*Esercizio 4: Commenti per Post**
 
 Mostra i post con il numero dei loro commenti
-**Requisiti:**
-
 * Recupera i post da `https://jsonplaceholder.typicode.com/posts` (limitati ai primi 10 con `slice()`)
 * Recupera tutti i commenti da `https://jsonplaceholder.typicode.com/comments`
 * Usa `filter()` per contare i commenti di ciascun post
 * Usa `map()` per creare un `<li>` che mostri:
+- Titolo del post
+- Numero di commenti di quel post
+- Mostra i risultati come lista ordinata `<ol>`
+*/
 
-  * Titolo del post
-  * Numero di commenti di quel post
-* Mostra i risultati come lista ordinata `<ol>`
 
----
 
-### **Esercizio 5: Album e Contatore di Foto**
 
-Crea una pagina riepilogativa per album e foto
-**Requisiti:**
 
+
+
+
+
+
+
+/*Esercizio 5: Album e Contatore di Foto**
+
+Crea una pagina riepilogativa per album e foto:
 * Recupera gli album da `https://jsonplaceholder.typicode.com/albums`
 * Recupera le foto da `https://jsonplaceholder.typicode.com/photos`
 * Usa `Promise.all()` per recuperarli contemporaneamente
 * Usa `reduce()` per raggruppare le foto per `albumId`
 * Usa `map()` per mostrare ogni album con:
 
-  * Titolo dell’album
-  * Numero di foto in quell’album
-* Usa `find()` per individuare l’album con più foto
-* Mostra l’album con più foto in cima con la dicitura **“Album più Popolare”**
-* Mostra tutti gli album come lista semplice sotto
+  - Titolo dell’album
+  - Numero di foto in quell’album
+  - Usa `find()` per individuare l’album con più foto
+  - Mostra l’album con più foto in cima con la dicitura **“Album più Popolare”**
+  - Mostra tutti gli album come lista semplice sotto
 */
 
 
+
+
+
+
+
+
+
+
+
+
+
+//CONSEGNE IN INGLESE:
 // Exercise 1: Basic User List
 // Create a simple page that displays user information
 // Requirements:
