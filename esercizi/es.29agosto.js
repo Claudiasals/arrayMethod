@@ -71,10 +71,6 @@ fetch('https://jsonplaceholder.typicode.com/users') // 1. Effettua la chiamata G
     });
 
 
-
-
-
-
 /*Esercizio 2: Todo Counter
 
 Crea una pagina che mostri statistiche sulle attività (todo)
@@ -106,11 +102,13 @@ fetch('https://jsonplaceholder.typicode.com/todos') // 1. Effettua la chiamata G
         //Usa `reduce()` per contare il numero di todo per ogni utente
         let numbersActionForUser = todos.reduce((acc, obj) => {
             if (!acc[obj.userId]) {
-                acc[obj.userId] = 0
+                acc[obj.userId] = 0;
             }
             acc[obj.userId]++;
-            return acc
-        })
+            return acc;
+        }, {}); // qui serve l’oggetto vuoto come valore iniziale
+
+        console.log("Utenti con il numero di todo", numbersActionForUser)
 
         // Mostra nel DOM L’utente con più todo (usando `reduce()`)
         //Object.entries() trasforma l’oggetto in un array di coppie [userId, count], perché reduce non funziona sugli oggetti
@@ -121,36 +119,40 @@ fetch('https://jsonplaceholder.typicode.com/todos') // 1. Effettua la chiamata G
         valoreSeVero → quello che viene restituito se la condizione è vera
         valoreSeFalso → quello che viene restituito se la condizione è falsa*/
         let moreTodoUser = Object.entries(numbersActionForUser)//trasformo l'oggetto in un array 
-            .reduce((accMax, [userId, item]) => {
-                return item > accMax.item ? { userId, item } : accMax;
-            }, { userId: null, item: 0 });
+            .reduce((accMax, [userId, value]) => { //"spacchetto array"[] userId = indice 0, value = indice 1
+                if (value > accMax.value) { //se value è maggiore dell'ultimo valore massimo segnato
+                    return { userId, value };  //aggiorno il valore massimo
+                } else {                  //altrimenti
+                    return accMax;      //tengo il massimo che avevo già
+                }
+            }, { userId: null, value: 0 }); // valore iniziale di chiave e valore
 
         console.log("Utente con più todo:", moreTodoUser);
-    }, {});
-
-console.log("Utenti con il numero di todo", numbersActionForUser)
-
-// Numero totale di todo
-const totalTodos = todos.length;
-document.body.innerHTML += `<p>Numero totale di todo: ${totalTodos}</p>`;
-
-// Numero di todo completate
-document.body.innerHTML += `<p>Todo completate: ${completedActions.length}</p>`;
-
-// Numero di todo non completate
-document.body.innerHTML += `<p>Todo non completate: ${incompleteActions.length}</p>`;
 
 
-     
+
+        // Numero totale di todo
+        const totalTodos = todos.length;
+        document.body.innerHTML += `<p>Numero totale di todo: ${totalTodos}</p>`;
+
+        // Numero di todo completate
+        document.body.innerHTML += `<p>Todo completate: ${completedActions.length}</p>`;
+
+        // Numero di todo non completate
+        document.body.innerHTML += `<p>Todo non completate: ${incompleteActions.length}</p>`;
 
 
 
     })
 
-    .catch (error => {
-    console.error('Errore nel recupero utenti:', error);
+    .catch(error => {
+        console.error('Errore nel recupero utenti:', error);
 
-});
+    });
+
+
+
+
 
 
 
