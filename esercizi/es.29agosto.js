@@ -40,6 +40,22 @@ fetch('https://jsonplaceholder.typicode.com/users') // 1. Effettua la chiamata G
         const bizUsers = users.filter(user => user.email.endsWith('.biz'));
 
         console.log("Filtro utenti con email che termina per .biz", bizUsers)
+
+
+    //lista utenti filtrati biz
+
+    let listaHTMLbiz = "<ul>";
+
+    for (let i = 0; i < bizUsers.length; i++) {
+        listaHTMLbiz += "<li>" + bizUsers[i].name + "</li>";
+    }
+
+    listaHTMLbiz += "</ul>";
+
+    console.log("ECCO LA LISTA DEGLI UTENTI CON EMAIL CHE TERMINANO PER .BIZ: ", listaHTMLbiz)
+
+        document.body.innerHTML += listaHTMLbiz; 
+
     })
 
     .catch(error => {
