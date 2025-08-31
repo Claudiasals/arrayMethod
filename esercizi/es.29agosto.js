@@ -26,13 +26,15 @@ console.log("Array di stringhe con nome e email:", listNameEmail);
 let listaHTML = "<ul>"; // CREO L'INIZIO DELLA LISTA
 
 for (let i = 0; i < listNameEmail.length; i++) {
+    //inizializzo; scorro tutta la lunghezza dell'array; aggiungo 1 indice ad ogni ciclo
   listaHTML += "<li>" + listNameEmail[i] + "</li>"; // Aggiungi un elemento <li> per ogni stringa
-}
+} //+= aggiunge questa nuova stringa a listaHTML
 
 listaHTML += "</ul>"; // Chiudi la lista
 
-document.body.innerHTML += listaHTML;
 console.log("ECCO LA LLISTA DEGLI UTENTI CON NOME E EMAIL: ", listaHTML)
+
+document.body.innerHTML += listaHTML; //stampo a video
 
   })
 
