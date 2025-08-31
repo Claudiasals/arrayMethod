@@ -36,32 +36,43 @@ fetch('https://jsonplaceholder.typicode.com/users') // 1. Effettua la chiamata G
 
         document.body.innerHTML += listaHTML; //stampo a video
 
-    //Uso `filter()` per mostrare solo gli utenti con email che terminano in .biz
+        //Uso `filter()` per mostrare solo gli utenti con email che terminano in .biz
         const bizUsers = users.filter(user => user.email.endsWith('.biz'));
         //endsWith() -->  è un metodo delle stringhe che verifica se la stringa termina con (endsWith) il parametro scritto.
 
         console.log("Filtro utenti con email che termina per .biz", bizUsers)
 
 
-    //lista utenti filtrati biz
+        //lista utenti filtrati biz
 
-    let listaHTMLbiz = "<ul>";
+        let listaHTMLbiz = "<ul>";
 
-    for (let i = 0; i < bizUsers.length; i++) {
-        listaHTMLbiz += "<li>" + bizUsers[i].name + "</li>";
-    }
+        for (let i = 0; i < bizUsers.length; i++) {
+            listaHTMLbiz += "<li>" + bizUsers[i].name + "</li>";
+        }
 
-    listaHTMLbiz += "</ul>";
+        listaHTMLbiz += "</ul>";
 
-    console.log("ECCO LA LISTA DEGLI UTENTI CON EMAIL CHE TERMINANO PER .BIZ: ", listaHTMLbiz)
+        console.log("ECCO LA LISTA DEGLI UTENTI CON EMAIL CHE TERMINANO PER .BIZ: ", listaHTMLbiz)
 
-        document.body.innerHTML += listaHTMLbiz; 
+        document.body.innerHTML += listaHTMLbiz;
 
+        // conta elementi nell'array con gli utenti filtrati
+        let numeroUtentiFiltrati = bizUsers.length;
+        console.log(numeroUtentiFiltrati)
+
+        // creo paragrafo con il numero degli utenti filtrati
+        let paragrafo = "<p> Paragrafo con il numero totale di utenti filtrati: " + numeroUtentiFiltrati + "</p>";
+
+        document.body.innerHTML += paragrafo;
     })
 
     .catch(error => {
         console.error('Errore nel recupero utenti:', error);
+
     });
+
+
 
 
 
