@@ -152,14 +152,6 @@ fetch('https://jsonplaceholder.typicode.com/todos') // 1. Effettua la chiamata G
 
 
 
-
-
-
-
-
-
-
-
 /*Esercizio 3: Ricerca nei Titoli dei Post**
 
 Crea una lista di post ricercabile:
