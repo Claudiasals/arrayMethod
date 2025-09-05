@@ -129,7 +129,10 @@ fetch('https://jsonplaceholder.typicode.com/todos') // 1. Effettua la chiamata G
 
         console.log("Utente con più todo:", moreTodoUser);
 
+        document.body.innerHTML += `<p>Utente con più todo: ${moreTodoUser.userId}</p>`;
 
+
+        document.body.innerHTML += `<p>Utente con più todo: ${moreTodoUser}</p>`;
 
         // Numero totale di todo
         const totalTodos = todos.length;
@@ -147,6 +150,7 @@ fetch('https://jsonplaceholder.typicode.com/todos') // 1. Effettua la chiamata G
 
     .catch(error => {
         console.error('Errore nel recupero utenti:', error);
+
 
     });
 
@@ -167,12 +171,7 @@ Crea una lista di post ricercabile:
 
 
 
-
-
-
-
-
-/*Esercizio 4: Commenti per Post**
+/* Esercizio 4: Commenti per Post**
 
 Mostra i post con il numero dei loro commenti
 * Recupera i post da `https://jsonplaceholder.typicode.com/posts` (limitati ai primi 10 con `slice()`)
@@ -185,13 +184,23 @@ Mostra i post con il numero dei loro commenti
 */
 
 
+fetch('https://jsonplaceholder.typicode.com/posts') // 1. Effettua la chiamata GET
+    .then(responce => responce.json()) // 2. Converte la risposta in JSON
+    .then(posts2 => { //utilizziamo i dati json. Otteniamo un array di post
+        console.log("Array di oggetti di posts:", posts2);
+
+        const ten = posts2.slice(0, 10);
+        console.log("I primi 10 posts:", ten);
+
+    });
 
 
+fetch('https://jsonplaceholder.typicode.com/comments') // 1. Effettua la chiamata GET
+    .then(responce => responce.json()) // 2. Converte la risposta in JSON
+    .then(posts2 => { //utilizziamo i dati json. Otteniamo un array di post
+        console.log("Array di oggetti di posts:", posts2);
 
-
-
-
-
+    });
 
 
 /*Esercizio 5: Album e Contatore di Foto**
